@@ -1,0 +1,25 @@
+body {
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-secondary {
+  fill: var(--secondaryColor);
+}
+
+.fa-primary {
+  fill: var(--mainColor);
+}
+
+.text-primary {
+  color: #003767 !important;
+}
+
+.primary {
+  background-color: #003767 !important;
+}
+
+.primary:hover {
+  background-color: #007bbd !important;
+}

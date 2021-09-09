@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+			<meta charset="utf-8" />
+			<title>Height Fixer</title>
+	</head>
+	<body>
+			<iframe id="main" style="width: 378px;max-height: 380px;border: 1px solid red;"
+					src="https://local.flow.${ENV}:3000/?widgetid=5"></iframe>
+	</body>
+	<script type="text/javascript">
+			var handleMessage = function (message) {
+					console.log('message received', message);
+					if ('data' in message && 'message' in message.data && message.data.message == 'widgetHeightChanged' && 'widget' in message.data && 'height' in message.data) {
+							console.log("sanity check")
+							console.log('widgetHeightChanged', message);
+							document.getElementById('main').height = message.data.height;
+					}
+			}
+			if (window.addEventListener) {
+					window.addEventListener('message', handleMessage, false);
+			} else if (window.attachEvent) { // ie8
+					window.attachEvent('onmessage', handleMessage);
+			}
+	</script>
+</html>
